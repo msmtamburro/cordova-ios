@@ -273,7 +273,8 @@
 {
     WKWebView* wkWebView = (WKWebView*)_engineWebView;
     [wkWebView.configuration.userContentController removeScriptMessageHandlerForName:CDV_BRIDGE_NAME];
-
+    wkWebView = nil;
+    
     [super dispose];
 }
 
