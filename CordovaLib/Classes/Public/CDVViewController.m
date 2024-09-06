@@ -127,8 +127,7 @@ static UIColor* defaultBackgroundColor(void) {
 
 #pragma mark -
 
-- (void)dealloc
-{
+-(void)dispose {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_commandQueue dispose];
 
@@ -143,6 +142,11 @@ static UIColor* defaultBackgroundColor(void) {
     [self.launchView removeFromSuperview];
 
     _webViewEngine = nil;
+}
+
+- (void)dealloc
+{
+    [self dispose];
 }
 
 #pragma mark - Getters & Setters

@@ -229,6 +229,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)parseSettingsWithParser:(id <NSXMLParserDelegate>)delegate CDV_DEPRECATED(8, "Use CDVConfigParser parseConfigFile:withDelegate: instead");;
 
+/**
+ Destroys the webViewEngine.  Useful for the platform centered approach where you
+ cannot figure out why your own class, which inherits from CDVViewController, 
+ does not dealloc when popped from the stack.  (INSTEAD: solve the dealloc)
+ */
+- (void)dispose;
+
 @end
 
 NS_ASSUME_NONNULL_END
