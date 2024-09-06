@@ -128,6 +128,13 @@ static UIColor* defaultBackgroundColor(void) {
 #pragma mark -
 
 -(void)dispose {
+    _webViewEngine = nil;
+
+
+}
+
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_commandQueue dispose];
 
@@ -138,12 +145,8 @@ static UIColor* defaultBackgroundColor(void) {
     @synchronized(_pluginObjects) {
         [[_pluginObjects allValues] makeObjectsPerformSelector:@selector(dispose)];
         [_pluginObjects removeAllObjects];
-        _webViewEngine = nil;
     }
-}
-
-- (void)dealloc
-{
+    
     [self dispose];
 }
 
