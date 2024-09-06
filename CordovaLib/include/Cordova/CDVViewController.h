@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
     Use `CDVConfigParser` ``CDVConfigParser/parseConfigFile:withDelegate:`` instead.
  }
  */
-- (void)parseSettingsWithParser:(id <NSXMLParserDelegate>)delegate CDV_DEPRECATED(8, "Use CDVConfigParser parseConfigFile:withDelegate: instead");;
+- (void)parseSettingsWithParser:(id <NSXMLParserDelegate>)delegate CDV_DEPRECATED(8, "Use CDVConfigParser parseConfigFile:withDelegate: instead");
 
 /**
  Destroys the webViewEngine.  Useful for the platform centered approach where you

@@ -131,17 +131,15 @@ static UIColor* defaultBackgroundColor(void) {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_commandQueue dispose];
 
+    [self.launchView removeFromSuperview];
+    [self.webView removeFromSuperview];
     [self.webViewEngine loadHTMLString:@"about:blank" baseURL:nil];
 
     @synchronized(_pluginObjects) {
         [[_pluginObjects allValues] makeObjectsPerformSelector:@selector(dispose)];
         [_pluginObjects removeAllObjects];
+        _webViewEngine = nil;
     }
-
-    [self.webView removeFromSuperview];
-    [self.launchView removeFromSuperview];
-
-    _webViewEngine = nil;
 }
 
 - (void)dealloc
